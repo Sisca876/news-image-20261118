@@ -295,11 +295,11 @@ def draw_radar(x, y, w, h):
     arc(cx, cy - 6, 34, 180, 360, NAVY, 4)
     line(cx - 34, cy - 6, cx + 34, cy - 6, NAVY, 4)
     line(cx, cy - 6, cx + 26, cy - 30, RED, 3)
-    # mast + base
-    vline(cx, cy - 6, 34, NAVY, 6)
-    poly([(cx - 26, cy + 28), (cx + 26, cy + 28), (cx + 8, cy + 2),
+    # mast + base (base kept clear of the headline below the drawing area)
+    vline(cx, cy - 6, 30, NAVY, 6)
+    poly([(cx - 26, cy + 24), (cx + 26, cy + 24), (cx + 8, cy + 2),
           (cx - 8, cy + 2)], NAVY)
-    hline(x + 16, cy + 28, w - 32, NAVY, 3)
+    hline(x + 16, cy + 24, w - 32, NAVY, 3)
 
 
 def draw_quad(x, y, w, h):
@@ -339,13 +339,13 @@ def draw_chip(x, y, w, h):
 
 def draw_cyclone(x, y, w, h):
     """Weather story: a spiral storm seen from above."""
-    cx, cy = x + w // 2, y + h // 2 + 2
-    for r, a0, a1 in ((38, 20, 300), (29, 110, 390), (20, 200, 470), (12, 290, 540)):
+    cx, cy = x + w // 2, y + h // 2
+    for r, a0, a1 in ((34, 20, 300), (26, 110, 390), (18, 200, 470), (11, 290, 540)):
         arc(cx, cy, r, a0, a1, TEAL, 4)
     circle(cx, cy, 6, TEAL)
-    # rain streaks
-    for dx, dy in ((-50, 26), (50, 28), (-54, -16), (54, -12)):
-        line(cx + dx, cy + dy, cx + dx - 7, cy + dy + 14, SKY_DK, 3)
+    # rain streaks (kept short so they clear the headline below)
+    for dx, dy in ((-50, 24), (50, 26), (-54, -16), (54, -12)):
+        line(cx + dx, cy + dy, cx + dx - 7, cy + dy + 11, SKY_DK, 3)
 
 
 def draw_football(x, y, w, h):
